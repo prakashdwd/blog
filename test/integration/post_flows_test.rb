@@ -18,6 +18,13 @@ class PostFlowsTest < ActionDispatch::IntegrationTest
   	assert_select "h2" , "Post Title"
   end
 
+  test "Should NOT create Post" do  
+    get "/posts/new"
+    assert_response :success
+    post "/posts" , params: {post: {title: "" , body: "Post Body"}}
+    assert_response :success
+  end
+
   test "Should update Post" do  
     post = posts(:one)
     get edit_post_url(post)
