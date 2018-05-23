@@ -40,5 +40,13 @@ class PostFlowsTest < ActionDispatch::IntegrationTest
     assert_select "h1" , "Edited Title"
   end
 
+  test "Should NOT update Post" do  
+    post = posts(:two)
+    get edit_post_url(post)
+    assert_response :success
+    patch post_url(post) , params: {post: {title: "Edited Title" , body: "Edited Body" , category_id: nil }}    
+    assert_response :success
+  end
+
   
 end

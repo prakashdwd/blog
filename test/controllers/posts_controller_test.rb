@@ -28,7 +28,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 	   assert_redirected_to posts_url
    end
 
-   test "Form shouls show up" do
+   test "Form should show up" do
      get "/posts/new"
      assert_select "form" do |elements|
       elements.each do |element|
