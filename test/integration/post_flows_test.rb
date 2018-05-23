@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class PostFlowsTest < ActionDispatch::IntegrationTest
+
+  setup do
+   @post = posts(:one)
+  end
+
   test "It should load post#index" do
 	get "/"
 	assert_select "h1" , "Blog Posts"
@@ -15,5 +20,16 @@ class PostFlowsTest < ActionDispatch::IntegrationTest
   	assert_response :success
   	assert_select "h2" , "Post Title"
   end
+
+  test "Should edit Post" do  
+    get edit_post_url(@post)
+    assert_response :success
+    patch post_url(@post) , params: {post: {title: "Edited Title" , body: "Edited Body"}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_select "h1" , "Edited Title"
+  end
+
 
 end
