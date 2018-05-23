@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		@category = Category.all
 	end
 
 	def create
@@ -22,12 +23,17 @@ class PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
+		@category = Category.all
 	end
 
 	def update
 		@post = Post.find(params[:id])
-  		@post.update(post_params)
-  		redirect_to post_path(@post)
+		begin			
+	  		@post.update!(post_params)
+	  		redirect_to post_path(@post)
+	  	rescue
+	  		render :edit
+	  	end 		
 	end
 
 	def destroy
