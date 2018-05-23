@@ -1,10 +1,10 @@
 
 one:
-  title: news
+  title: one
   body: aaj ki taza khabar
-  category_id: 1
+  category: cone
 
 two:
-  title: sports
+  title: two
   body: sample text
-  category_id: 2
+  category: ctwo

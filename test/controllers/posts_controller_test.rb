@@ -25,7 +25,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
    	 assert_difference('Post.count', -1) do
      	delete post_path(post)
    	 end
-	 assert_redirected_to posts_url
+	   assert_redirected_to posts_url
+   end
+
+   test "Form shouls show up" do
+     get "/posts/new"
+     assert_select "form" do |elements|
+      elements.each do |element|
+        assert_select element , "input" , 3
+      end
+    end
    end
 
 end
