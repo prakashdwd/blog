@@ -9,5 +9,4 @@ class PostTest < ActiveSupport::TestCase
   	posts(:one).title = nil
   	assert_equal false , posts(:one).valid?
   end
-
 end
