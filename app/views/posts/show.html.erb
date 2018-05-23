@@ -2,4 +2,4 @@
 <p><%= @post.body %><p>
 
 
-<%= link_to "Edit" , edit_post_url %>  |  <%= link_to "Delete" , posts_url %> 
+<%= link_to "Edit" , edit_post_url %>  |  <%= link_to "Delete" , post_path , method: :delete,    data: { confirm: 'Are you sure?' } %> 

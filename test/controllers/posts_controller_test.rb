@@ -20,4 +20,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
      assert_response :success
    end
 
+   test "should delete post on destroy" do
+     post = posts(:two)
+   	 assert_difference('Post.count', -1) do
+     	delete post_path(post)
+   	 end
+	 assert_redirected_to posts_url
+   end
+
 end
