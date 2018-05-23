@@ -1,1 +1,5 @@
-
+Category.create(:name => "News")
+Category.create(:name => "Sports")
+Category.create(:name => "Technology")
+Category.create(:name => "Science")
+Category.create(:name => "Other")
