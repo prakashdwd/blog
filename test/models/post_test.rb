@@ -20,4 +20,13 @@ class PostTest < ActiveSupport::TestCase
     assert_equal false , posts(:one).valid?
   end
 
+  test "Category_id should NOT be string" do
+    posts(:one).category_id = "rer"
+    assert_equal false , posts(:one).category.is_a?(Integer)
+  end
+
+  test "Category_id should be integer" do
+    assert_equal false , posts(:one).category.is_a?(Integer)
+  end
+
 end
