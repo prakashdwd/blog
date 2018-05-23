@@ -1,6 +1,6 @@
 <h1>Blog Posts</h1>
 
-<%= link_to "Create new post" , new_post_url %>
+<%= link_to "Create new post" , new_post_url %>  |   <%= link_to "View Categories" , categories_url %>
 
 <% @posts.each do |post| %>
 	<h2><%= link_to post.title , post %></h2>
