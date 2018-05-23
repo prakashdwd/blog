@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: news
+  body: aaj ki taza khabar
+  category_id: 1
+
+two:
+  title: 
+  body: sample text
+  category_id: 2
