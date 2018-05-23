@@ -11,4 +11,9 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     get category_url(@category)
     assert_response :success
   end
+
+  test "Should open posts from a particular category" do
+  	get category_url(categories(:cone))
+  	assert_select "h2" , "one"
+  end
 end

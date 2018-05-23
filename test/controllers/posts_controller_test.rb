@@ -37,4 +37,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
    end
 
+   test "Should open the post 'one'" do
+     get post_url(@post)
+     assert_response :success
+     assert_select "h1" , "one"
+   end
+
 end
